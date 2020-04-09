@@ -40,18 +40,17 @@ let questions = [
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 3;
 
-startGame = () => { //=> is function array
+startGame = () => { 
     questionCounter = 0;
     score= 0;
     availableQuestions = [...questions]; //... is spread operator
-    console.log (availableQuestions);
     getNewQuestion();
 };   
 
 getNewQuestion = ()=>{
   if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS){
     //retrun to the end page
-    window.location.assign('/end.html');
+    window.location.assign('end.html');
   }
     questionCounter++;
     const questionIndex = Math.floor (Math.random()*(availableQuestions.length));
@@ -73,9 +72,15 @@ choices.forEach(choice => {
 
     acceptingAnswers = false; 
     const selectedChoice = e.target;
-    const selectedAnswer = selectedChoice.dataset['number'];
-   
-    getNewQuestion();
+    const selectedAnswer = selectedChoice.dataset["number"];
+
+    const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+      selectedChoice.parentElement.classList.add(classToApply);
+
+      setTimeout(() => {
+        selectedChoice.parentElement.classList.remove(classToApply);
+        getNewQuestion();
+      }, 1000);
 
     });
 });
