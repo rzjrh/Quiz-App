@@ -11,7 +11,7 @@
 .choice-container :hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(38, 89, 114, 0.5);
-    transform: translateY(-0.2rem);
+    transform: translateY(-0.1rem);
     transition: transform 150ms;
 }
 
@@ -27,11 +27,11 @@
 }
 
 .correct {
-background-color: greenyellow ;
+background-color: rgb(146, 209, 51) ;
 }
 
 .incorrect {
-background-color: red;
+background-color: rgb(192, 54, 54);
 }
 
 #hud {
@@ -46,4 +46,8 @@ background-color: red;
 
 .hud-main-text {
     text-align: center;
+}
+
+#game {
+    display: flex;
 }
